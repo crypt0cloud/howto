@@ -1,5 +1,7 @@
 # Crypt0.Cloud Usage guidelines
-Here we are going to show you how to use the sdks provided for the different languages
+Here we are going to show you how to use the sdks provided for the different languages. When all the languages have their own ways of working they all follow this general process.
+
+![alt text](https://raw.githubusercontent.com/crypt0cloud/howto/master/lib_flow.png "Description of transactions")
 
 ## Signer Keys
 In Crypt0.Cloud there is a variety of posible Signers, every one describing different responsabilities and different authority.
@@ -27,3 +29,4 @@ Signing steps:
 - **Creating Signing Request** (CreateSigningRequest): This is created by an aplication completing all the information that will be signed by the user key, returning an id that can be used to retrieve the Signing Request. 
 - **Getting Signing Request** (GetSigningRequest): With the id of the Signing Request this method can retrieve the data of the transaction to be signed allowing asincronous signing in case of signing in different devices or platforms. 
 - **Sign Signing Request** (SignSigningRequest): This is the actual signing by user key and publishing of the transaction to Crypt0.Cloud.
+
