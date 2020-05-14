@@ -1,32 +1,33 @@
 # Crypt0.Cloud Usage guidelines
-Here we are going to show you how to use the sdks provided for the different languages. When all the languages have their own ways of working they all follow this general process.
+In this section we show how to use the SDKs provided by Crypt0.Coud for different programming languages. Although each programming language has its own forms of execution, they will all be aligned the following general process.
 
 ![alt text](https://raw.githubusercontent.com/crypt0cloud/howto/master/lib_flow.png "Description of transactions")
 
 ## Signer Keys
-In Crypt0.Cloud there is a variety of posible Signers, every one describing different responsabilities and different authority.
+Crypt0.Cloud has a variety of potential signers, each of which describes different responsibilities and different authorities.
 
 ### Signing Keys
-This key are created on the fly by the libraries, to be used in the platform have to be registered self signing the registration transaction (CreateKey) with a key id value to identify the key in the external platform. When registered this transactions can sign the transactions inside a Group. 
+To be used on the platform, it must be registered by self-signing the registration transaction (CreateKey) with a Key ID to identify it on the external platform. Once the key is registered, they can be used to sign the transactions within a Group.
+Keys are automatically created by libraries. 
 
 ### Application Keys
-This keys are issued by the Cluster Controller and represent the autority of an applications or an endpoint to create Group Transactions or Single Transactions
+These keys are issued by the Controller Cluster and represent the authority of an application or an endpoint to create group transactions or individual transactions.
 
 ## Kinds of Transactions
-Every transaction in Crypt0.Cloud have to be signed by the corect key kind, operationally there is two kind of Transactions: Group Transactions, and Transactiosn from a Group.
+Every transaction in Crypt0.Cloud must be signed by the correct key type, operationally there are two types of Transactions: **Group Transactions** and **Single Transactions** (that belong to a group).
 
 ### Group Transactions
-The group transaction is a transaction created by an application key (CreateGroup) and this transaction will hold sub transactions that will carry details for this group. You can imagine this as a folder of transactions.
+Group transactions are transactions created by an Application Key (CreateGroup) and these contain sub-transactions that carry detailed information for this group. You can imagine this as a transaction folder.
 
-When a group Transaction is created a list of transaction kinds is required. This kinds enumerate the named kind of the transactions inside the group, for example if you have a group transaction of a Investigation, that group will have proves, veredicts, fillings and notifications, those can be the values of the list of transactions ["prove", "veredict", "filling", "notification"].
+When creating a Group Transaction, a list of types of transactions is required within the group; for instance: if you have an *Research Folder* group transaction, that group might contain *Evidences*, *Verdicts*, *Filings*, and *Notifications*, between others. Based on this example, these could be the values ​​of the transaction list: ["evidence", "verdict", "filling", "notification", ...].
 
-When inserted the Sign of the Group becomes the **Parent** value of all the transactios in the Group. 
+When inserted, the Group Signature becomes the primary value of all transactions in the group.
 
-### Transactions in a Group
-This transaction are signed by an Signing Key but created by an aplication for this reason the process of creating them is asynchronous allowing inovative use cases. 
+### Simple Transactions (that belong to a group)
+This transaction is signed by a Signing Key but created by an application, for this reason the creation process is asynchronous, which allows creating innovative use cases. 
 
 Signing steps:
-- **Creating Signing Request** (CreateSigningRequest): This is created by an aplication completing all the information that will be signed by the signing key, returning an id that can be used to retrieve the Signing Request. 
-- **Getting Signing Request** (GetSigningRequest): With the id of the Signing Request this method can retrieve the data of the transaction to be signed allowing asincronous signing in case of signing in different devices or platforms. 
-- **Sign Signing Request** (SignSigningRequest): This is the actual signing by signing key and publishing of the transaction to Crypt0.Cloud.
+- **Creating Signing Request** (CreateSigningRequest):  It is created by an application that completes all the information that will be signed by the Signing Key and returns an identification that can be used to retrieve the signature request. 
+- **Getting Signing Request** (GetSigningRequest): with the identification of the Signature Request, this method can retrieve the data of the transaction to be signed, allowing an asynchronous signature in case of signing on different devices or platforms. 
+- **Sign Signing Request** (SignSigningRequest): This is the actual signing of the Signing Request and posting of the transaction to Crypt0.Cloud with a Signing Key.
 
